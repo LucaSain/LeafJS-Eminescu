@@ -1,137 +1,47 @@
-<HTML>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="buton" onclick="harta()">VEZI HARTA</button>
+    </div>
+  </body>
+  <style>
+    body {
+      background-image: url("./background.png");
+    }
 
-<head>
-  <title>Harta Publicatii Eminescu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-    crossorigin=""></script>
-</head>
+    .container {
+      margin-top: 600px;
+      display: flex;
+      width: 100%;
+      top: 70%;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+    }
 
-<body>
-  <div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="igg">
-    <button class="but" onclick="next()">Urmatoarea Locatie</button>
-    <button class="but2" onclick="prev()">Locatia Precedenta</button>
-  </div>
-  </div>
-
-  <button class="openbtn" onclick="openNav()">&#9776; Exploreaza</button>
-  <div id="map">
-
-  </div>
-  <script src="./index.js">
-
+    .buton {
+      width: 500px;
+      height: 50px;
+      border-radius: 50px;
+      background: rgb(245, 255, 0);
+      background: radial-gradient(
+        circle,
+        rgba(245, 255, 0, 1) 0%,
+        rgba(149, 139, 136, 1) 100%
+      );
+      font-size: larger;
+    }
+  </style>
+  <script>
+    function harta() {
+      window.location.href = "http://127.0.0.1:5500/harta.html";
+    }
   </script>
-</body>
-<style>
-  #map {
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-  .igg{
-    position: absolute;
-    width: 100%;
-    height: 5%;
-    bottom: 8%;
-  }
-  .but
-  {
-    position: relative;
-    width: 35%;
-    height: 100%;
-    bottom: 20%;
-    margin-left: 11%;
-  }
-  .but2{
-    position: relative;
-    width: 35%;
-    height: 100%;
-    bottom: 20%;
-    margin-left: 5%;
-  }
-  .ni {
-    margin-left: 17%;
-  }
-
-  .sidepanel {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    background-color: white;
-    color: #d0b09f;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-
-  .sus {
-    width: 100%;
-    height: 70%;
-    position: relative;
-    left: 1%
-  }
-
-  .leaflet-popup-pane {
-    height: 10%;
-    width: 15%;
-  }
-
-  .sidepanel a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #d0b09f;
-    display: block;
-    transition: 0.3s;
-    position: fixed;
-    z-index: 10;
-    position: relative;
-
-  }
-
-  .sidepanel a:hover {
-    color: #f1f1f1;
-  }
-
-
-  .sidepanel .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    z-index: 10;
-    color: #d0b09f;
-
-  }
-
-
-  .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #d0b09f;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    position: fixed;
-    z-index: 9;
-  }
-
-  .openbtn:hover {
-    background-color: white;
-    color: #d0b09f;
-  }
-</style>
-
-</HTML>
+</html>
