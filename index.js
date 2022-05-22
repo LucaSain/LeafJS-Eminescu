@@ -19,10 +19,13 @@ var map = L.map('map',{
 });
 
 //locate zoom
-map.zoomControl.setPosition('topright')
+map.zoomControl.setPosition('topright');
 
+
+setTimeout(function(){ map.invalidateSize()}, 100);
 //handle waypoints
-map.flyTo([47.74145879286627, 26.65952773936658],8);
+
+
 L.tileLayer('https://api.mapbox.com/styles/v1/lucasainenco/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     maxZoom: 18,
     id: 'cl3evd2lo004414rz7mmgpd5g',
@@ -30,6 +33,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/lucasainenco/{id}/tiles/{z}/{x}/{y
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoibHVjYXNhaW5lbmNvIiwiYSI6ImNsM2V2YXJ2czA0bDYzam4wMXYycDU0eG0ifQ.p7mkAeKWRHsi3q6pLdMhIQ'
 }).addTo(map);
+map.flyTo([47.74145879286627, 26.65952773936658],8);
+//create popups
 var Botosani = L.marker([47.74145879286627,26.65952773936658]).addTo(map);
 var Cernauti = L.marker([48.281723789609,25.942375039229802]).addTo(map);
 var Viena = L.marker([48.20256653850632,16.375739391280092]).addTo(map);
@@ -38,11 +43,15 @@ var Iasi = L.marker([47.1574936249298,27.58796427224692]).addTo(map);
 
 
 Botosani.on("click", ()=>{
+
+    document.getElementById("mySidepanel").innerHTML="<h1>sugus laurentae evenigrande<\h1>";   
     map.flyTo([47.74145879286627, 26.65952773936658],12);
 
 });
 
 Cernauti.on("click",()=>{
+
+    document.getElementById("mySidepanel").innerHTML="<h1>sugus laurentae evenigrande<\h1>";   
     map.flyTo([48.281723789609,25.942375039229802],12);
 
 });
@@ -56,16 +65,20 @@ Viena.on("click",()=>
 
 BudaPesta.on("click",()=>
 {
+    document.getElementById("mySidepanel").innerHTML="<h1>sugus laurentae evenigrande<\h1>";   
     map.flyTo([47.47406540960728,19.04659516095427],12);
 
 });
 
 Iasi.on("click",()=>{
+
+    document.getElementById("mySidepanel").innerHTML="<h1>sugus laurentae evenigrande<\h1>";   
     map.flyTo([47.1574936249298,27.58796427224692],12);
 
 })
 //map handle
-map.on("click",()=>{closeNav();
+map.on("click",()=>{
+    closeNav();
 
 });
 
