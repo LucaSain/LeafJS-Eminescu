@@ -40,7 +40,7 @@ var Cernauti = L.marker([48.281723789609,25.942375039229802]).addTo(map);
 var Viena = L.marker([48.20256653850632,16.375739391280092]).addTo(map);
 var BudaPesta = L.marker([47.47406540960728,19.04659516095427]).addTo(map);
 var Iasi = L.marker([47.1574936249298,27.58796427224692]).addTo(map);
-
+var Bucuresti = L.marker([44.428865136973656,26.110832379918293]).addTo(map); 
 
 Botosani.on("click", ()=>{
 
@@ -48,7 +48,9 @@ Botosani.on("click", ()=>{
     map.flyTo([47.74145879286627, 26.65952773936658],12);
 
 });
-
+Bucuresti.on("click",()=>{
+    map.flyTo([44.428865136973656,26.110832379918293],12);
+});
 Cernauti.on("click",()=>{
 
     document.getElementById("mySidepanel").innerHTML="<h1>sugus laurentae evenigrande<\h1>";   
