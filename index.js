@@ -50,13 +50,12 @@ var greenIcon = L.icon({
 var Botosani = L.marker([47.74145879286627,26.65952773936658],{icon:greenIcon}).addTo(map);
 var Cernauti = L.marker([48.281723789609,25.942375039229802],{icon:greenIcon}).addTo(map);
 var Viena = L.marker([48.20256653850632,16.375739391280092],{icon:greenIcon}).addTo(map);
-var BudaPesta = L.marker([47.47406540960728,19.04659516095427],{icon:greenIcon}).addTo(map);
+var Budapesta = L.marker([47.47406540960728,19.04659516095427],{icon:greenIcon}).addTo(map);
 var Iasi = L.marker([47.1574936249298,27.58796427224692],{icon:greenIcon}).addTo(map);
 var Bucuresti = L.marker([44.428865136973656,26.110832379918293],{icon:greenIcon}).addTo(map); 
 
 Botosani.on("click", ()=>{
-
-    document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul Natal* a Poetului<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
+    document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul natal al poetului, Botosani<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
     map.flyTo([47.74145879286627, 26.65952773936658],12);
 
 });
@@ -69,26 +68,19 @@ Cernauti.on("click",()=>{
     map.flyTo([48.281723789609,25.942375039229802],12);
 
 });
-
 Viena.on("click",()=>
 {
     document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Viena<\h1>      <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';    
     map.flyTo([48.20256653850632,16.375739391280092],12);
-
 });
-
-BudaPesta.on("click",()=>
+Budapesta.on("click",()=>
 {
     document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Budapesta<\h1>       <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
     map.flyTo([47.47406540960728,19.04659516095427],12);
-
 });
-
 Iasi.on("click",()=>{
-
     document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Iasi<\h1>         <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
     map.flyTo([47.1574936249298,27.58796427224692],12);
-
 })
 //map handle
 map.on("click",()=>{
@@ -99,23 +91,22 @@ map.on("click",()=>{
 
 
 Botosani.bindPopup(
-    '<img class="sus" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg">  <\img><br><h1>Botosani<\h1>  '
+    '<img class="sus" src="https://upload.wikimedia.org/wikipedia/ro/3/3e/Casa_memorial%C4%83_Mihai_Eminescu_din_Ipote%C8%99ti.jpg">  <\img><br><h1>Ipotesti<\h1>  '
 );
 Bucuresti.bindPopup(
-    '<img class="sus" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg">  <\img><br><h1>Bucuresti<\h1>   '
+    '<img class="sus" src="https://www.formula-as.ro/wp-content/uploads/2019/09/1802-12-m-1000x630.jpg">  <\img><br><h1>Casa lui Titu Maiorescu<\h1>   '
 );
 Cernauti.bindPopup(
-    '<img class="sus" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg">  <\img><br><h1>Cernauti<\h1>'
+    '<img class="sus" src="https://www.europafm.ro/wp-content/uploads/2018/02/cernauti-februarie-2018-18.jpg">  <\img><br><h1>Hotelul Pajura Neagra<\h1>'
 );
 Viena.bindPopup(
-    '<img class="sus" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg">  <\img><br><h1>asdasdasd<\h1>  '
+    '<img class="sus" src="https://adevarul.ro/assets/adevarul.ro/MRImage/2015/08/29/55e198f5f5eaafab2c0969a2/627x0.jpg">  <\img><br><h1>Porzellangasse nr.9<\h1>  '
 );
-BudaPesta.bindPopup(
-    '<img class="sus" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg">  <\img><br><h1>asdasdasd<\h1>   '
-
+Budapesta.bindPopup(
+    '<img class="sus" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Revista_Familia_-_Logo_-_9_martie_1866.JPG">  <\img><br><h1>A publicat in revista “Familia”<\h1>   '
 );
 Iasi.bindPopup(
-    '<img class="sus" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg">  <\img><br><h1>asdasdasd<\h1> '
+    '<img class="sus" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/b7/d9/22/casa-v-pogor.jpg?w=1200&h=-1&s=1">  <\img><br><h1>Casa Vasile Pogor<\h1> '
 );
 //handle button 
 function next()
@@ -124,7 +115,7 @@ function next()
     switch(cur)
     {
         case 0:
-            document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul Natal* a Poetului<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
+            document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul natal al poetului, Botosani<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
             map.flyTo([47.74145879286627, 26.65952773936658],12);
             break;
         case 1:
@@ -149,7 +140,7 @@ function next()
             break;
         default:
             cur=0;
-            document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul Natal* a Poetului<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
+            document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul natal al poetului, Botosani<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
             map.flyTo([47.74145879286627, 26.65952773936658],12);
             break;
 
@@ -162,7 +153,7 @@ function prev()
     switch(cur)
     {
         case 0:
-            document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul Natal* a Poetului<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
+            document.getElementById("mySidepanel").innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><h1 class="ni">Orasul natal al poetului, Botosani<\h1>    <div class="igg"><button class="but" onclick="next()">Urmatoarea Locatie</button><button class="but2" onclick="prev()">Locatia Precedenta</button></div>';   
             map.flyTo([47.74145879286627, 26.65952773936658],12);
             break;
 
