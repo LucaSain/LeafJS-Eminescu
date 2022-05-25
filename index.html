@@ -1,57 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container2">
-      <h1>Despre Mihai Eminescu</h1>
-    </div>
 
-    <div class="container">
-      <button class="buton" onclick="harta()">VEZI HARTA</button>
-    </div>
-  </body>
-  <style>
-    body {
-      background-image: url("./background.png");
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-    .container {
-      margin-top: 500px;
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-      justify-items: center;
-    }
+<body>
+  <div id="nick"></div>
+  <div class="container2">
+    <h1>Despre Mihai Eminescu</h1>
 
-    .container2 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      justify-items: center;
-    }
 
-    .buton {
-      width: 500px;
-      height: 50px;
-      border-radius: 50px;
-      background: rgb(245, 255, 0);
-      background: radial-gradient(
-        circle,
-        rgba(245, 255, 0, 1) 0%,
-        rgba(149, 139, 136, 1) 100%
-      );
-      font-size: larger;
-    }
-  </style>
-  <script>
-    function harta() {
-      window.location.href = "https://eminescu.netlify.app/harta.html";
-    }
-  </script>
+    <button class="buton" onclick="harta()">Exploreaza</button>
+  </div>
+</body>
+<style>
+  #nick {
+    position: absolute;
+    background-image: url("./background.png");
+    filter: blur(5px);
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.4);
+    background-size: 120%;
+    margin-top: -1%;
+    margin-left: -1%;
+
+    padding: 1%;
+  }
+
+
+
+  .container2 {
+    position: absolute;
+    z-index: 9;
+    margin-top: 0;
+    height: 60%;
+    margin-top: 20%;
+    margin-left: 28%;
+    color: white;
+    font-size: xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+  }
+
+  .buton {
+    position: relative;
+    border-color: #8d786d;
+    border-radius: 15px;
+    background-color: #8d786d;
+    position: relative;
+    width: 35%;
+    height: 50px;
+    margin-left: 31%;
+    border-style: solid;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+  }
+
+  .buton:hover {
+    background-color: white;
+    color: #8d786d;
+  }
+</style>
+<script>
+  function harta() {
+    window.location.href = "harta.html";
+  }
+</script>
+
 </html>
