@@ -1,188 +1,249 @@
 <html>
+  <head>
+    <title>Harta Publicatii Eminescu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+  </head>
 
-<head>
-  <title>Harta Publicatii Eminescu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-    crossorigin=""></script>
-</head>
 
-<body>
-  <div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="igg">
-      <button class="but" onclick="next()">Urmatoarea Locatie</button>
-      <button class="but2" onclick="prev()">Locatia Precedenta</button>
+
+  <body>
+    <div id="app">
+      <div id="mySidepanel" class="sidepanel" :class="{ opennv: NavOpen }">
+        <a href="javascript:void(0)" class="closebtn" @click="CloseNav()">&times;</a>
+
+        <div>
+
+          <div class="ritar">
+
+            <h1 class="ni">{{title}}</h1>
+
+            <img class="imagine" :src="default_image" />
+            <h5>
+
+              {{data}}
+
+            </h5>
+            <div v-if="cnt>0">
+            <div v-for="i in cnt">
+              <div v-if="which==1">
+                <img class="imagine" :src="'src/img/viena/'+i + '.jpg'"/>
+              </div>
+              <div v-if="which==2">
+                <img class="imagine" :src="'src/img/Convorbiri_Literare(iasi)/'+i + '.jpg'"/>
+              </div>
+              <div v-if="which==3">
+                <img class="imagine" :src="'src/img/Familia(pesta)/'+i + '.jpg'"/>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="igg">
+          <button class="but2" @click="prev()">Locatia Precedenta</button>
+          <button class="but" @click="next()">Urmatoarea Locatie</button>
+        </div>
+      </div>
+
+      <button class="openbtn" @click="OpenNav()">&#9776; Exploreaza</button>
     </div>
-  </div>
-
-  <button class="openbtn" onclick="openNav()">&#9776; Exploreaza</button>
-  <div id="map"></div>
-  <script src="./index.js"></script>
-</body>
-<style>
-  .ritar {
-    margin-left: 10%;
-    height: 75%;
-    bottom: 30%;
-    overflow-y: scroll;
-    overflow-x: unset;
-    margin-right: 10%;
-  }
-
-  .text-below-marker {
-    min-width: 100px;
-
-    left: -43px;
-    text-align: center;
-    min-height: 1.2em;
-    top: 20px;
-    size: 700px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    color: #8d786d;
-    font-size: large;
-  }
-
-  #map {
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .igg {
-    position: absolute;
-    width: 100%;
-    height: 5%;
-    bottom: 8%;
-  
-  }
-
-  .but {
-    border-color: #d0b09f;
-    border-radius: 15px;
-    background-color: #d0b09f;
-    position: relative;
-    width: 35%;
-    height: 50px;
-    bottom: 20%;
-    margin-left: 11%;
-    border-style: solid;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
-    
-  }
+    <div id="map"></div>
+    <!--<script src="./index.js"></script> -->
+    <script src="app.js"></script>
+  </body>
 
 
-  .but2 {
-    border-color: #d0b09f;
-    border-radius: 15px;
-    background-color: #d0b09f;
-    position: relative;
-    width: 35%;
-    height: 50px;
-    bottom: 20%;
-    margin-left: 5%;
-    border-style: solid;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
-    
-  }
 
 
-  .but:hover {
-    background-color: white;
-    color: #d0b09f;
-  }
 
-  .but2:hover {
-    background-color: white;
-    color: #d0b09f;
-  }
 
-  .ni {
-    margin-left: 17%;
-  }
+  <style>
+    .sidepanel.opennv {
+      width: 27%;
+    }
 
-  .sidepanel {
-    
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    background-color: white;
-    color: #d0b09f;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+    .ritar {
+      margin-left: 10%;
+      height: 75%;
+      bottom: 30%;
+      overflow-y: scroll;
+      overflow-x: unset;
+      margin-right: 10%;
+    }
 
-  .sus {
-    width: 250px;
-    height: 200px;
-    position: relative;
-    left: 1%;
-  }
+    .text-below-marker {
+      min-width: 100px;
 
-  .leaflet-popup-pane {
-    height: 10%;
-    width: 15%;
-  }
+      left: -43px;
+      text-align: center;
+      min-height: 1.2em;
+      top: 20px;
+      size: 700px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      color: #8d786d;
+      font-size: large;
+    }
+    .text-slight-marker {
+      min-width: 100px;
 
-  .sidepanel a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #d0b09f;
-    display: block;
-    transition: 0.3s;
-    position: fixed;
-    z-index: 10;
-    position: relative;
-  }
+      left: -100px;
+      text-align: center;
+      min-height: 1.2em;
+      top: 10px;
+      size: 700px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      color: #8d786d;
+      font-size: large;
+    }
 
-  .sidepanel a:hover {
-    color: #f1f1f1;
-  }
+    #map {
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
 
-  .sidepanel .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    z-index: 10;
-    color: #d0b09f;
-  }
+    .igg {
+      position: absolute;
+      width: 100%;
+      height: 5%;
+      bottom: 8%;
+      padding-left: 4%;
+    }
 
-  .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #d0b09f;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    position: fixed;
-    z-index: 9;
-  }
+    .but {
+      border-color: #8d786d;
+      border-radius: 15px;
+      background-color: #8d786d;
+      position: relative;
+      width: 35%;
+      height: 50px;
+      bottom: 20%;
+      margin-left: 11%;
+      border-style: solid;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: white;
+    }
 
-  .openbtn:hover {
-    background-color: white;
-    color: #d0b09f;
-  }
+    .but2 {
+      border-color: #8d786d;
+      border-radius: 15px;
+      background-color: #8d786d;
+      position: relative;
+      width: 35%;
+      height: 50px;
+      bottom: 20%;
+      margin-left: 5%;
+      border-style: solid;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: white;
+    }
 
-  .imagine {
-    width: 400px;
-    height: 500px;
-  }
-</style>
+    .but:hover {
+      background-color: white;
+      color: #8d786d;
+    }
 
+    .but2:hover {
+      background-color: white;
+      color: #8d786d;
+    }
+
+    .ni {
+      margin: auto;
+      width: 50%;
+      margin-bottom: 4%;
+      padding-left: 4%;
+    }
+
+    .sidepanel {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      background-color: white;
+      color: #8d786d;
+      overflow-x: hidden;
+      padding-top: 60px;
+      transition: 0.5s;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .sus {
+      width: 250px;
+      height: 200px;
+      position: relative;
+      left: 1%;
+    }
+
+    .leaflet-popup-pane {
+      height: 10%;
+      width: 15%;
+    }
+
+    .sidepanel a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #8d786d;
+      display: block;
+      transition: 0.3s;
+      position: fixed;
+      z-index: 10;
+      position: relative;
+    }
+
+    .sidepanel a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidepanel .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      z-index: 10;
+      color: #8d786d;
+    }
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #8d786d;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      position: fixed;
+      z-index: 9;
+    }
+
+    .openbtn:hover {
+      background-color: white;
+      color: #8d786d;
+    }
+
+    .imagine {
+      width: 400px;
+      height: 500px;
+    }
+  </style>
 </html>
