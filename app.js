@@ -353,7 +353,7 @@ const app = Vue.createApp({
       this.OpenNav();
       this.cnt=0
       map.flyTo([47.74145879286627, 26.65952773936658], 12);
-      cur=2;
+      this.cur=2;
       //nisan();
     });
     Bucuresti.on("click", () => {
@@ -365,7 +365,7 @@ const app = Vue.createApp({
         this.OpenNav();
         this.cnt=0
         map.flyTo([44.428865136973656, 26.110832379918293], 12);
-        cur=7
+        this.cur=7
 
       });
       Cernauti.on("click", () => {
@@ -377,7 +377,7 @@ const app = Vue.createApp({
         this.OpenNav();
         this.cnt=0
         map.flyTo([48.281723789609, 25.942375039229802], 12);
-        cur=3;
+        this.cur=3;
 
       });
       Viena.on("click", () => {
@@ -390,7 +390,7 @@ const app = Vue.createApp({
         this.cnt=this.textData[5].img;
         this.OpenNav();
         map.flyTo([48.20256653850632, 16.375739391280092], 12);
-        cur=5;
+        this.cur=5;
 
       });
       Budapesta.on("click", () => {
@@ -403,7 +403,7 @@ const app = Vue.createApp({
         this.which=3;
         this.cnt=this.textData[6].img;
         map.flyTo([47.47406540960728, 19.04659516095427], 12);
-        cur=4;
+        this.cur=4;
     
       });
       Iasi.on("click", () => {
@@ -416,7 +416,7 @@ const app = Vue.createApp({
         this.cnt=this.textData[7].img;
         this.OpenNav();
         map.flyTo([47.1574936249298, 27.58796427224692], 12);
-        cur=6;
+        this.cur=6;
   
       });
       Ipotesti.on("click", () => {
@@ -428,7 +428,7 @@ const app = Vue.createApp({
         this.OpenNav();
         this.cnt=0
         map.flyTo([47.76520853657726, 26.558941863861747], 12);
-        cur=1;
+        this.cur=1;
         
 
       });
